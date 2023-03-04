@@ -109,16 +109,9 @@ section p{
 }
 
 /* ----------------- Home -------------------- */
-/* .home{
+.home{
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(pizzaHomeScreen.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-} */
-
-.home-img{
-    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
