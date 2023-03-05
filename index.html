@@ -21,22 +21,37 @@
     <title>Pizza Restaurant</title>
 </head>
 <body>
-    <header class="head">
+    <header class="head" role="navigation" aria-label="Social Navigation">
         <h1>Pizza&nbsp;<i class="fas fa-pizza-slice"></i>&nbsp;Restaurant</h1>
         <nav class="navbar">
-            <a href="#aboutus">ABOUT US</a>
-            <a href="#menu">MENU</a>
-            <a href="#blogs">BLOGS</a>
-            <a href="#testimony">TESTIMONY</a>
-            <a href="#findus">FIND US</a>
-            <a href="#ourteam">OUR TEAM</a>
+            <a href="#aboutus" aria-label="About Us">ABOUT US</a>
+            <a href="#menu" aria-label="Menu">MENU</a>
+            <a href="#blogs" aria-label="Blogs">BLOGS</a>
+            <a href="#testimony" aria-label="Testimony">TESTIMONY</a>
+            <a href="#findus" aria-label="FindUs">FIND US</a>
+            <a href="#ourteam" aria-label="OurTeam">OUR TEAM</a>
         </nav>
-        <div class="side-bar">
-            <i class="fa-brands fa-instagram" id="search"></i>
-            <i class="fa-brands fa-facebook-f" id="user"></i>
-            <i class="fa-brands fa-whatsapp" id="bars"></i>
+        <div class="side-bar" role="navigation" aria-label="Social Navigation">
+            <a href="intagram.com"><i class="fa-brands fa-instagram" id="search"></i></a>
+            <a href="facebook.com"><i class="fa-brands fa-facebook-f" id="user"></i></a>
+            <a href="whatsapp.com"><i class="fa-brands fa-whatsapp" id="bars"></i></a>
         </div>
+        <button class="btn"><span class="toggle_btn"><i class="fa-solid fa-bars"></i></span></button>
     </header>
+
+    <div class="dropdown_menu">
+        <li><a href="#about-us">ABOUT US</a></li>
+        <li><a href="#menu">MENU</a></li>
+        <li><a href="#blogs">BLOGS</a></li>
+        <li><a href="#testimony">TESTIMONY</a></li>
+        <li><a href="#find-us">FIND US</a></li>
+        <li><a href="#our-team">OUR TEAM</a></li>
+        <!-- <li><a href="instagram.com"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+        <li><a href="facebook.com"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+        <li><a href="wa.com"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li> -->
+    </div>
+
+
 
     <!-- ------------------- Home ---------------------- -->
     <section class="home" id="home">
@@ -57,7 +72,8 @@
         <h4>About Us</h4>
         <div class="about-sec">
             <div class="about-content">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                leap into electronic typesetting, remaining essentially unchanged.</p>
             </div>
             <div class="img">
                 <img src="AboutUs.png" alt="About Us Image">
@@ -111,10 +127,10 @@
             <div class="find-left">
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                     the industry's standard dummy text e.</p>
-                <div class="location">
-                    <a href="https://www.google.com/maps/place/Patna,+Bihar/@25.608037,85.143043,11z/data=!4m6!3m5!1s0x39f29937c52d4f05:0x831a0e05f607b270!8m2!3d25.5940947!4d85.1375645!16zL20vMDI3d3Zi?hl=en"><span class="material-icons">location_on</span></a>
-                    <a href="https://www.google.com/maps/place/Patna,+Bihar/@25.608037,85.143043,11z/data=!4m6!3m5!1s0x39f29937c52d4f05:0x831a0e05f607b270!8m2!3d25.5940947!4d85.1375645!16zL20vMDI3d3Zi?hl=en"><span>Location XYZ, XYZ Colony, Delhi</span></a>
-                </div>
+                    <div class="location">
+                        <a href="https://www.google.com/maps/place/Patna,+Bihar/@25.608037,85.143043,11z/data=!4m6!3m5!1s0x39f29937c52d4f05:0x831a0e05f607b270!8m2!3d25.5940947!4d85.1375645!16zL20vMDI3d3Zi?hl=en"><span class="material-icons">location_on</span></a>
+                        <a href="https://www.google.com/maps/place/Patna,+Bihar/@25.608037,85.143043,11z/data=!4m6!3m5!1s0x39f29937c52d4f05:0x831a0e05f607b270!8m2!3d25.5940947!4d85.1375645!16zL20vMDI3d3Zi?hl=en"><span>Location XYZ, XYZ Colony, Delhi</span></a>
+                    </div>
                 <div class="call">
                     <a href="tel:01243452788"><span class="material-icons">call</span></a>
                     <div class="ph">
@@ -161,20 +177,33 @@
 
     
 </body>
+
 <script>
-    // let searchbtn = document.querySelector('#search');
-    let searchfrm = document.querySelector('.head');
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
 
-    search.btn.onclick = () => {
-        searchfrm.classList.toggle('active');
-        menu.classList.remove('active');
-    }
+    toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle('open')
 
-    let menu = document.querySelector('.head .navbar');
-
-    document.querySelector('#bars').onclick = () => {
-        menu.classList.toggle('active');
-        searchfrm.classList.remove('active');
+        const isOpen = dropDownMenu.classList.contains('open')
+        toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
     }
 </script>
+<!-- <script> -->
+    // let searchbtn = document.querySelector('#search');
+    // let searchfrm = document.querySelector('.head');
+
+    // search.btn.onclick = () => {
+    //     searchfrm.classList.toggle('active');
+    //     menu.classList.remove('active');
+    // }
+
+    // let menu = document.querySelector('.head .navbar');
+
+    // document.querySelector('#bars').onclick = () => {
+    //     menu.classList.toggle('active');
+    //     searchfrm.classList.remove('active');
+    // }
+<!-- </script> -->
 </html>
